@@ -34,4 +34,5 @@ public class Habitante {
 		public double getEdad(){
 			return edad;
 	 	}
+	}
 }

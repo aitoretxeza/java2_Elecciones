@@ -25,4 +25,5 @@ public class Ayuntamiento {
 		public String getDireccion(){
 			return direccion;
 	 	}
+	}
 }

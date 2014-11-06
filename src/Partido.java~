@@ -34,4 +34,5 @@ public class Partido {
 		public String getIdealogia(){
 			return idealogia;
 	 	}
+	}
 }

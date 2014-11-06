@@ -17,4 +17,5 @@ public class EspacioPublico {
 		public String getDireccion(){
 			return direccion;
 	 	}
+	}
 }
