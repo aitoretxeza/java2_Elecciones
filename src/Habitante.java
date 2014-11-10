@@ -1,7 +1,7 @@
 public class Habitante {
 
 		private String dni, nombre, apellido;
-		private double edad;
+		private int edad;
 
 		public void setDni (String dniIntroducido){
 			dni = dniIntroducido;
@@ -27,11 +27,11 @@ public class Habitante {
 			return apellido;
 	 	}
 
-		public void setEdad (double edadIntroducido){
+		public void setEdad (int edadIntroducido){
 			edad = edadIntroducido;
 	 	}
 		
-		public double getEdad(){
+		public int getEdad(){
 			return edad;
 	 	}
 }

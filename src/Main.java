@@ -1,9 +1,12 @@
+import java.io.*;
+
 public class Main {
 
 	public static void main(String[] args) {
 
 		String dniHabitante, nombreHabitante, apellidoHabitante, direccionInmueble, nombreDueñoInmueble, apellidoDueñoInmueble, tipoEspacioPublico, direccionEspacioPublico, nombreAlcaldeAyuntamiento, puebloAyuntamiento, direccionAyuntamiento;
-		double edadHabitante, areaInmueble;
+		int edadHabitante;
+		double areaInmueble;
 
 		Habitante habitante1 = new Habitante();
 
@@ -18,17 +21,17 @@ public class Main {
 		edadHabitante = habitante1.getEdad();
 
 		System.out.println("\n\nInformación del habitante");
-		System.out.println("\n\nDNI: " + dniHabitante);
-		System.out.println("\nNombre: " + nombreHabitante);
-		System.out.println("\nApellido: " + apellidoHabitante);
-		System.out.println("\nEdad: " + edadHabitante + "años");
+		System.out.println("\nDNI: " + dniHabitante);
+		System.out.println("Nombre: " + nombreHabitante);
+		System.out.println("Apellido: " + apellidoHabitante);
+		System.out.println("Edad: " + edadHabitante + " años");
 
 		Inmueble inmueble1 = new Inmueble();
 
 		inmueble1.setDireccion("Kale Nagusia, 31");
 		inmueble1.setNombreDueño("Edurne");
 		inmueble1.setApellidoDueño("Mendizabal");
-		inmueble1.setArea("20");
+		inmueble1.setArea(20);
 
 		direccionInmueble = inmueble1.getDireccion();
 		nombreDueñoInmueble = inmueble1.getNombreDueño();
@@ -36,10 +39,10 @@ public class Main {
 		areaInmueble = inmueble1.getArea();
 
 		System.out.println("\n\nInformación del inmueble");
-		System.out.println("\n\nDireccion: " + direccionInmueble);
-		System.out.println("\nNombre: " + nombreDueñoInmueble);
-		System.out.println("\nApellido: " + apellidoDueñoInmueble);
-		System.out.println("\nArea: " + areaInmueble + "m2");
+		System.out.println("\nDireccion: " + direccionInmueble);
+		System.out.println("Nombre: " + nombreDueñoInmueble);
+		System.out.println("Apellido: " + apellidoDueñoInmueble);
+		System.out.println("Area: " + areaInmueble + " m2");
 
 		EspacioPublico espacioPublico1 = new EspacioPublico();
 
@@ -50,8 +53,8 @@ public class Main {
 		tipoEspacioPublico = espacioPublico1.getTipo();
 
 		System.out.println("\n\nInformación del espacio público");
-		System.out.println("\n\nDireccion: " + direccionEspacioPublico);
-		System.out.println("\nTipo: " + tipoEspacioPublico);
+		System.out.println("\nDireccion: " + direccionEspacioPublico);
+		System.out.println("Tipo: " + tipoEspacioPublico);
 
 		Ayuntamiento ayuntamiento1 = new Ayuntamiento();
 
@@ -64,8 +67,28 @@ public class Main {
 		direccionAyuntamiento = ayuntamiento1.getDireccion();
 
 		System.out.println("\n\nInformación del ayuntamiento");
-		System.out.println("\n\nAlcalde: " + nombreAlcaldeAyuntamiento);
-		System.out.println("\nPueblo: " + puebloAyuntamiento);
-		System.out.println("\nDireccion: " + direccionAyuntamiento);
+		System.out.println("\nAlcalde: " + nombreAlcaldeAyuntamiento);
+		System.out.println("Pueblo: " + puebloAyuntamiento);
+		System.out.println("Direccion: " + direccionAyuntamiento);
+
+
+		String partidos = null;
+                File archivo = new File("partido.txt");
+                try {
+                        FileReader reader = new FileReader(archivo);
+                        char[] chars = new char[(int) archivo.length()];
+                        reader.read(chars);
+                        partidos = new String(chars);
+                        reader.close();
+                      
+                        String[] vector = partidos.split("/n");
+                       
+			System.out.println("\n\nLista de los partidos");
+                        for(int n = 0; n < vector.length; n++) {
+                                System.out.println("\n" + vector[n]);
+                        }
+                } catch (IOException e) {
+                        e.printStackTrace();
+                }
 	}
 }
