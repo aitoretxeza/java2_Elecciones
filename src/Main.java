@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		String dniHabitante, nombreHabitante, apellidoHabitante, direccionInmueble, nombreDueñoInmueble, apellidoDueñoInmueble, tipoEspacioPublico, direccionEspacioPublico, nombreAlcaldeAyuntamiento, puebloAyuntamiento, direccionAyuntamiento;
+		String dniHabitante, nombreHabitante, apellidoHabitante, direccionInmueble, nombreDueñoInmueble, apellidoDueñoInmueble, tipoEspacioPublico, direccionEspacioPublico, nombreAlcaldeAyuntamiento, puebloAyuntamiento, direccionAyuntamiento, nombrePartido;
 		int edadHabitante;
 		double areaInmueble;
 
@@ -71,9 +71,10 @@ public class Main {
 		System.out.println("Pueblo: " + puebloAyuntamiento);
 		System.out.println("Direccion: " + direccionAyuntamiento);
 
+		Partido partido1 = new Partido ();
 
 		String partidos = null;
-                File archivo = new File("partido.txt");
+                File archivo = new File("listadosPartidos.txt");
                 try {
                         FileReader reader = new FileReader(archivo);
                         char[] chars = new char[(int) archivo.length()];
@@ -81,11 +82,18 @@ public class Main {
                         partidos = new String(chars);
                         reader.close();
                       
-                        String[] vector = partidos.split("/n");
+                        String[] lista = partidos.split("/n");
                        
-			System.out.println("\n\nLista de los partidos");
-                        for(int n = 0; n < vector.length; n++) {
-                                System.out.println("\n" + vector[n]);
+			System.out.println("\n\nLista de los partidos\n");
+			int n = 0;
+                        while (n < lista.length) {
+				partido1.setNombre(lista[n]);
+				
+				nombrePartido = partido1.getNombre();
+
+				System.out.println(nombrePartido);
+
+				n++;
                         }
                 } catch (IOException e) {
                         e.printStackTrace();
