@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		String dniHabitante, nombreHabitante, apellidoHabitante, direccionInmueble, nombreDueñoInmueble, apellidoDueñoInmueble, tipoEspacioPublico, direccionEspacioPublico, nombreAlcaldeAyuntamiento, puebloAyuntamiento, direccionAyuntamiento, nombrePartido;
 		int edadHabitante;
@@ -73,26 +73,24 @@ public class Main {
 		System.out.println("Direccion: " + direccionAyuntamiento);
 
 		System.out.println("\n\nLista de los partidos\n");
-		ArrayList<String> partidos = new ArrayList<String>();
 		File archivo = new File("listadosPartidos.txt");
-		try {
-			Scanner sc = new Scanner(archivo);
-			while (sc.hasNextLine()){
-				String linea = sc.nextLine();
-				String [] lista = linea.split(",");
-				Partido partido = new Partido();
-
-				partido.setNombre(lista[0]);
-				partido.setNumeroMiembros(lista[1]);
-				partido.setAñoFundacion(lista[2]);
-				partido.setIdealogia(lista[3]);
-
-				System.out.println(partido.getNombre() + " " + partido.getNumeroMiembros() + " " + partido.getAñoFundacion() + " " + partido.getIdealogia());
-
-				//partidos.add(partido);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		BufferedReader br = new BufferedReader(new FileReader(archivo));
+		ArrayList <String> partidos = new ArrayList <String> ();
+		String linea = br.readLine();
+		while(linea != null) {
+			partidos.add(linea);
+			linea = br.readLine();
 		}
+		int i=0;
+		while(i<partidos.size()) {
+			String partido = partidos.get(i);
+			ArrayList <Partido> partidosArray = new ArrayList(Arrays.asList(partido.split(",")));
+			System.out.println("Partido " + i + " (" + partidosArray.get(0) + "): ");
+			System.out.println("Numero Miembros = " + partidosArray.get(1));
+			System.out.println("Año Fundacion = " + partidosArray.get(2));
+			System.out.println("Presidente = " + partidosArray.get(3) + "\n");
+			i++;
+		}
+		partidos.clear();
 	}
 }

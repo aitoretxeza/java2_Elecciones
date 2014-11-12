@@ -1,7 +1,6 @@
 public class Partido {
 
-		private String nombre, numeroMiembros, idealogia;
-		private double añoFundacion;
+		private String nombre, numeroMiembros, añoFundacion, idealogia;
 
 		public void setNombre (String nombreIntroducido){
 			nombre = nombreIntroducido;
@@ -19,19 +18,19 @@ public class Partido {
 			return numeroMiembros;
 	 	}
 
-		public void setAñoFundacion (double añoFundacionIntroducido){
+		public void setAñoFundacion (String añoFundacionIntroducido){
 			añoFundacion = añoFundacionIntroducido;
 	 	}
 		
-		public double getAñoFundacion(){
+		public String getAñoFundacion(){
 			return añoFundacion;
 	 	}
 
-		public void setIdealogia (String idealogiaIntroducido){
-			idealogia = idealogiaIntroducido;
+		public void setPresidente (String presidenteIntroducido){
+			presidente = presidenteIntroducido;
 	 	}
 		
-		public String getIdealogia(){
-			return idealogia;
+		public String getPresidente(){
+			return presidente;
 	 	}
 }

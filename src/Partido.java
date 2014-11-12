@@ -1,6 +1,6 @@
 public class Partido {
 
-		private String nombre, numeroMiembros, añoFundacion, idealogia;
+		private String nombre, numeroMiembros, añoFundacion, presidente;
 
 		public void setNombre (String nombreIntroducido){
 			nombre = nombreIntroducido;
@@ -26,11 +26,11 @@ public class Partido {
 			return añoFundacion;
 	 	}
 
-		public void setIdealogia (String idealogiaIntroducido){
-			idealogia = idealogiaIntroducido;
+		public void setPresidente (String presidenteIntroducido){
+			presidente = presidenteIntroducido;
 	 	}
 		
-		public String getIdealogia(){
-			return idealogia;
+		public String getPresidente(){
+			return presidente;
 	 	}
 }
