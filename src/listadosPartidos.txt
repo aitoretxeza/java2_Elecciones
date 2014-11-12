@@ -1,5 +1,5 @@
-PP
-PSOE
-Podemos
-PNV
-Bildu
+PP, 5, 1900, derecha
+PSOE, 4, 1800, centro
+Podemos, 3, 1700, izquierda
+PNV, 2, 1600, centro
+Bildu, 1, 1500, izquierda

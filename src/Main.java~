@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 
 public class Main {
 
@@ -71,32 +72,27 @@ public class Main {
 		System.out.println("Pueblo: " + puebloAyuntamiento);
 		System.out.println("Direccion: " + direccionAyuntamiento);
 
-		Partido partido1 = new Partido ();
+		System.out.println("\n\nLista de los partidos\n");
+		ArrayList<String> partidos = new ArrayList<String>();
+		File archivo = new File("listadosPartidos.txt");
+		try {
+			Scanner sc = new Scanner(archivo);
+			while (sc.hasNextLine()){
+				String linea = sc.nextLine();
+				String [] lista = linea.split(",");
+				Partido partido = new Partido();
 
-		String partidos = null;
-                File archivo = new File("listadosPartidos.txt");
-                try {
-                        FileReader reader = new FileReader(archivo);
-                        char[] chars = new char[(int) archivo.length()];
-                        reader.read(chars);
-                        partidos = new String(chars);
-                        reader.close();
-                      
-                        String[] lista = partidos.split("/n");
-                       
-			System.out.println("\n\nLista de los partidos\n");
-			int n = 0;
-                        while (n < lista.length) {
-				partido1.setNombre(lista[n]);
-				
-				nombrePartido = partido1.getNombre();
+				partido.setNombre(lista[0]);
+				partido.setNumeroMiembros(lista[1]);
+				partido.setAñoFundacion(lista[2]);
+				partido.setIdealogia(lista[3]);
 
-				System.out.println("Nombre: " + nombrePartido);
+				System.out.println(partido.getNombre() + " " + partido.getNumeroMiembros() + " " + partido.getAñoFundacion() + " " + partido.getIdealogia());
 
-				n++;
-                        }
-                } catch (IOException e) {
-                        e.printStackTrace();
-                }
+				partidos.add(partido);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
