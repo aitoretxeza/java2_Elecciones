@@ -2,6 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+	
+	@SuppressWarnings("unchecked")
 
 	public static void main(String[] args) throws IOException {
 
@@ -9,23 +11,31 @@ public class Main {
 		int edadHabitante;
 		double areaInmueble;
 
-		Habitante habitante1 = new Habitante();
+/*---------------------------------------------------------------HABITANTES------------------------------------------------------------------*/
 
-		habitante1.setDni("98765432A");
-		habitante1.setNombre("Mikel");
-		habitante1.setApellido("Olano");
-		habitante1.setEdad(30);
+		System.out.println("\n\nInformacion de los habitantes\n");
+		File archivo = new File("censo.txt");
+		BufferedReader br = new BufferedReader(new FileReader(archivo));
+		ArrayList <String> habitantes = new ArrayList <String> ();
+		String linea = br.readLine();
+		while(linea != null) {
+			habitantes.add(linea);
+			linea = br.readLine();
+		}
+		int i=0;
+		while(i<habitantes.size()) {
+			String habitante = habitantes.get(i);
+			ArrayList <Habitante> habitantesArray = new ArrayList(Arrays.asList(habitante.split(",")));
+			System.out.println("Habitante " + i + ":");
+			System.out.println("DNI = " + habitantesArray.get(0));
+			System.out.println("Nombre = " + habitantesArray.get(1));
+			System.out.println("Apellido = " + habitantesArray.get(2));
+			System.out.println("Edad = " + habitantesArray.get(3) + "\n");
+			i++;
+		}
+		habitantes.clear();
 
-		dniHabitante = habitante1.getDni();
-		nombreHabitante = habitante1.getNombre();
-		apellidoHabitante = habitante1.getApellido();
-		edadHabitante = habitante1.getEdad();
-
-		System.out.println("\n\nInformación del habitante");
-		System.out.println("\nDNI: " + dniHabitante);
-		System.out.println("Nombre: " + nombreHabitante);
-		System.out.println("Apellido: " + apellidoHabitante);
-		System.out.println("Edad: " + edadHabitante + " años");
+/*---------------------------------------------------------------INMUEBLES-------------------------------------------------------------------*/
 
 		Inmueble inmueble1 = new Inmueble();
 
@@ -39,11 +49,13 @@ public class Main {
 		apellidoDueñoInmueble = inmueble1.getApellidoDueño();
 		areaInmueble = inmueble1.getArea();
 
-		System.out.println("\n\nInformación del inmueble");
+		System.out.println("\nInformación del inmueble");
 		System.out.println("\nDireccion: " + direccionInmueble);
 		System.out.println("Nombre: " + nombreDueñoInmueble);
 		System.out.println("Apellido: " + apellidoDueñoInmueble);
 		System.out.println("Area: " + areaInmueble + " m2");
+
+/*------------------------------------------------------------ESPACIOS PUBLICOS--------------------------------------------------------------*/
 
 		EspacioPublico espacioPublico1 = new EspacioPublico();
 
@@ -56,6 +68,8 @@ public class Main {
 		System.out.println("\n\nInformación del espacio público");
 		System.out.println("\nDireccion: " + direccionEspacioPublico);
 		System.out.println("Tipo: " + tipoEspacioPublico);
+
+/*--------------------------------------------------------------AYUNTAMIENTOS----------------------------------------------------------------*/
 
 		Ayuntamiento ayuntamiento1 = new Ayuntamiento();
 
@@ -72,24 +86,26 @@ public class Main {
 		System.out.println("Pueblo: " + puebloAyuntamiento);
 		System.out.println("Direccion: " + direccionAyuntamiento);
 
+/*----------------------------------------------------------------PARTIDOS-------------------------------------------------------------------*/
+
 		System.out.println("\n\nLista de los partidos\n");
-		File archivo = new File("listadosPartidos.txt");
-		BufferedReader br = new BufferedReader(new FileReader(archivo));
+		File archivo2 = new File("listadosPartidos.txt");
+		BufferedReader br2 = new BufferedReader(new FileReader(archivo2));
 		ArrayList <String> partidos = new ArrayList <String> ();
-		String linea = br.readLine();
-		while(linea != null) {
-			partidos.add(linea);
-			linea = br.readLine();
+		String linea2 = br2.readLine();
+		while(linea2 != null) {
+			partidos.add(linea2);
+			linea2 = br2.readLine();
 		}
-		int i=0;
-		while(i<partidos.size()) {
-			String partido = partidos.get(i);
+		int i2=0;
+		while(i2<partidos.size()) {
+			String partido = partidos.get(i2);
 			ArrayList <Partido> partidosArray = new ArrayList(Arrays.asList(partido.split(",")));
-			System.out.println("Partido " + i + " (" + partidosArray.get(0) + "): ");
+			System.out.println("Partido " + i2 + " (" + partidosArray.get(0) + "): ");
 			System.out.println("Numero Miembros = " + partidosArray.get(1));
 			System.out.println("Año Fundacion = " + partidosArray.get(2));
 			System.out.println("Presidente = " + partidosArray.get(3) + "\n");
-			i++;
+			i2++;
 		}
 		partidos.clear();
 	}

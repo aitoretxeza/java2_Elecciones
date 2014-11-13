@@ -1,0 +1,4 @@
+98765432M, Mikel, Olano, 30
+87654321L, Leire, Treku, 15
+12345678U, Unai, Astibia, 18
+23456789G, Gorka, Areizaga, 16
