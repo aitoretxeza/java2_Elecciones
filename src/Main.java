@@ -20,7 +20,7 @@ public class Main {
 
 		ArrayList<Habitante> habitantes = new ArrayList<Habitante>();
 	
-		String path = "/home/administrador/Zubiri 2014-2015/Java Proyectos/java2_Elecciones/src";		
+		String path = "/home/zubiri/ProyectosJava/java2_Elecciones/src";		
 		String archivo = "censo.txt";
 
 		File fichero = new File(path, archivo);

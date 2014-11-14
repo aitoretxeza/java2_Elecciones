@@ -63,6 +63,8 @@ public class Main {
 
 /*---------------------------------------------------------------INMUEBLES-------------------------------------------------------------------*/
 
+		System.out.println("\n---------- Información del inmueble ----------");
+
 		Inmueble inmueble1 = new Inmueble();
 
 		inmueble1.setDireccion("Kale Nagusia, 31");
@@ -75,13 +77,14 @@ public class Main {
 		apellidoDueñoInmueble = inmueble1.getApellidoDueño();
 		areaInmueble = inmueble1.getArea();
 
-		System.out.println("\n---------- Información del inmueble ----------");
 		System.out.println("\nDireccion: " + direccionInmueble);
 		System.out.println("Nombre: " + nombreDueñoInmueble);
 		System.out.println("Apellido: " + apellidoDueñoInmueble);
 		System.out.println("Area: " + areaInmueble + " m2");
 
 /*------------------------------------------------------------ESPACIOS PUBLICOS--------------------------------------------------------------*/
+
+		System.out.println("\n\n---------- Información del espacio público ----------");
 
 		EspacioPublico espacioPublico1 = new EspacioPublico();
 
@@ -91,7 +94,6 @@ public class Main {
 		direccionEspacioPublico = espacioPublico1.getDireccion();
 		tipoEspacioPublico = espacioPublico1.getTipo();
 
-		System.out.println("\n\n---------- Información del espacio público ----------");
 		System.out.println("\nDireccion: " + direccionEspacioPublico);
 		System.out.println("Tipo: " + tipoEspacioPublico);
 
