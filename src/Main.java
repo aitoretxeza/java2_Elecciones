@@ -30,6 +30,7 @@ public class Main {
 
 		System.out.print("\n----------------------------------------------");
 
+<<<<<<< HEAD
 		switch (respuesta) {
 
 /*---------------------------------------------------------------HABITANTES------------------------------------------------------------------*/
@@ -78,6 +79,35 @@ public class Main {
 					} catch (Exception e2) {
 						e2.printStackTrace();
 					}
+=======
+		ArrayList<Habitante> habitantes = new ArrayList<Habitante>();
+	
+		String path = "/home/zubiri/ProyectosJava/java2_Elecciones/src";		
+		String archivo = "censo.txt";
+
+		File fichero = new File(path, archivo);
+		Scanner sc = null;
+
+		try {
+			sc = new Scanner(fichero);
+			while (sc.hasNextLine()){
+				String linea = sc.nextLine();
+				String [] palabra = linea.split(", ");
+				Habitante habitante = new Habitante();
+
+				habitante.setDni(palabra[0]);
+				habitante.setNombre(palabra[1]);
+				habitante.setApellido(palabra[2]);
+				habitante.setEdad(Integer.parseInt(palabra[3]));
+
+				habitantes.add(habitante);
+
+				if (habitante.getEdad() >= 18){		
+					System.out.println("DNI: " + habitante.getDni());
+					System.out.println("Nombre: " + habitante.getNombre());
+					System.out.println("Apellido: " + habitante.getApellido());
+					System.out.println("Edad: " + habitante.getEdad() + "\n");
+>>>>>>> 89b3a1fbb1688efe61ca5182882cd43295013769
 				}
 
 				break;

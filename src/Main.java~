@@ -86,11 +86,17 @@ public class Main {
 
 /*---------------------------------------------------------------INMUEBLES-------------------------------------------------------------------*/
 
+<<<<<<< HEAD
 			case "2":  {
 			
 				System.out.println("\n\n---------- Información del inmueble ----------\n");
 
 				Inmueble inmueble1 = new Inmueble();
+=======
+		System.out.println("\n---------- Información del inmueble ----------");
+
+		Inmueble inmueble1 = new Inmueble();
+>>>>>>> 89b3a1fbb1688efe61ca5182882cd43295013769
 
 				inmueble1.setDireccion("Kale Nagusia, 31");
 				inmueble1.setNombreDueño("Edurne");
@@ -102,6 +108,7 @@ public class Main {
 				apellidoDueñoInmueble = inmueble1.getApellidoDueño();
 				areaInmueble = inmueble1.getArea();
 
+<<<<<<< HEAD
 				System.out.println("Direccion: " + direccionInmueble);
 				System.out.println("Nombre: " + nombreDueñoInmueble);
 				System.out.println("Apellido: " + apellidoDueñoInmueble);
@@ -118,6 +125,18 @@ public class Main {
 				System.out.println("\n\n------ Información del espacio público -------\n");
 
 				EspacioPublico espacioPublico1 = new EspacioPublico();
+=======
+		System.out.println("\nDireccion: " + direccionInmueble);
+		System.out.println("Nombre: " + nombreDueñoInmueble);
+		System.out.println("Apellido: " + apellidoDueñoInmueble);
+		System.out.println("Area: " + areaInmueble + " m2");
+
+/*------------------------------------------------------------ESPACIOS PUBLICOS--------------------------------------------------------------*/
+
+		System.out.println("\n\n---------- Información del espacio público ----------");
+
+		EspacioPublico espacioPublico1 = new EspacioPublico();
+>>>>>>> 89b3a1fbb1688efe61ca5182882cd43295013769
 
 				espacioPublico1.setDireccion("Otelarrea, 35");
 				espacioPublico1.setTipo("Escuela");
@@ -125,12 +144,17 @@ public class Main {
 				direccionEspacioPublico = espacioPublico1.getDireccion();
 				tipoEspacioPublico = espacioPublico1.getTipo();
 
+<<<<<<< HEAD
 				System.out.println("Direccion: " + direccionEspacioPublico);
 				System.out.println("Tipo: " + tipoEspacioPublico + "\n");
 
 				break;
 
 			}
+=======
+		System.out.println("\nDireccion: " + direccionEspacioPublico);
+		System.out.println("Tipo: " + tipoEspacioPublico);
+>>>>>>> 89b3a1fbb1688efe61ca5182882cd43295013769
 
 /*--------------------------------------------------------------AYUNTAMIENTOS----------------------------------------------------------------*/
 
