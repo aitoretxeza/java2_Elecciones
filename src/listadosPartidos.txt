@@ -1,5 +1,5 @@
-PP, 865 000, 1977, Mariano Rajoy
+PP, 865.000, 1977, Mariano Rajoy
 PSOE, 623.000, 1879, Micaela Navarro
-Podemos, 236 086, 2014, Pablo Iglesias
+Podemos, 236.086, 2014, Pablo Iglesias
 PNV, 31.000, 1895, Andoni Ortuzar
-Bildu, 8000, 2011, Pello Urizar
+Bildu, 8.000, 2011, Pello Urizar

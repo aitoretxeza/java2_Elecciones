@@ -1,6 +1,7 @@
 public class Partido {
 
-		private String nombre, numeroMiembros, añoFundacion, presidente;
+		private String nombre, numeroMiembros, presidente;
+		int añoFundacion;
 
 		public void setNombre (String nombreIntroducido){
 			nombre = nombreIntroducido;
@@ -18,11 +19,11 @@ public class Partido {
 			return numeroMiembros;
 	 	}
 
-		public void setAñoFundacion (String añoFundacionIntroducido){
+		public void setAñoFundacion (int añoFundacionIntroducido){
 			añoFundacion = añoFundacionIntroducido;
 	 	}
 		
-		public String getAñoFundacion(){
+		public int getAñoFundacion(){
 			return añoFundacion;
 	 	}
 

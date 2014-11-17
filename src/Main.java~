@@ -10,131 +10,211 @@ public class Main {
 
 		String dniHabitante, nombreHabitante, apellidoHabitante, direccionInmueble, nombreDueñoInmueble, apellidoDueñoInmueble, tipoEspacioPublico, direccionEspacioPublico, nombreAlcaldeAyuntamiento, puebloAyuntamiento, direccionAyuntamiento, nombrePartido;
 
+		String pathArchivo = "/home/administrador/Zubiri 2014-2015/Java Proyectos/java2_Elecciones/src";
+
 		int edadHabitante;
 
 		double areaInmueble;
 
+		Scanner sc = new Scanner(System.in);
+		System.out.print("\n-------------------- MENU --------------------\n");
+		System.out.print("\n1 - Habitantes");
+		System.out.print("\n2 - Inmuebles");
+		System.out.print("\n3 - Espacios Públicos");
+		System.out.print("\n4 - Ayuntamientos");
+		System.out.print("\n5 - Partidos políticos");
+		System.out.print("\n6 - Salir");
+		System.out.print("\n\nElija un número de las opciones de arriba: ");
+		
+		String respuesta = sc.nextLine();
+
+		System.out.print("\n----------------------------------------------");
+
+		switch (respuesta) {
+
 /*---------------------------------------------------------------HABITANTES------------------------------------------------------------------*/
 
-		System.out.println("\n\n----- Lista de los habitantes mayores de edad -----\n");
+			case "1":  {
 
-		ArrayList<Habitante> habitantes = new ArrayList<Habitante>();
-	
-		String path = "/home/administrador/Zubiri 2014-2015/Java Proyectos/java2_Elecciones/src";		
-		String archivo = "censo.txt";
+				System.out.println("\n\n-- Lista de los habitantes mayores de edad ---\n");
 
-		File fichero = new File(path, archivo);
-		Scanner sc = null;
+				ArrayList<Habitante> habitantes = new ArrayList<Habitante>();
+			
+				String archivo = "censo.txt";
 
-		try {
-			sc = new Scanner(fichero);
-			while (sc.hasNextLine()){
-				String linea = sc.nextLine();
-				String [] palabra = linea.split(", ");
-				Habitante habitante = new Habitante();
+				File fichero = new File(pathArchivo, archivo);
+				Scanner s = null;
 
-				habitante.setDni(palabra[0]);
-				habitante.setNombre(palabra[1]);
-				habitante.setApellido(palabra[2]);
-				habitante.setEdad(Integer.parseInt(palabra[3]));
+				try {
+					s = new Scanner(fichero);
+					while (s.hasNextLine()){
+						String linea = s.nextLine();
+						String [] palabra = linea.split(", ");
+						Habitante habitante = new Habitante();
 
-				habitantes.add(habitante);
+						habitante.setDni(palabra[0]);
+						habitante.setNombre(palabra[1]);
+						habitante.setApellido(palabra[2]);
+						habitante.setEdad(Integer.parseInt(palabra[3]));
 
-				if (habitante.getEdad() >= 18){		
-					System.out.println("DNI: " + habitante.getDni());
-					System.out.println("Nombre: " + habitante.getNombre());
-					System.out.println("Apellido: " + habitante.getApellido());
-					System.out.println("Edad: " + habitante.getEdad() + "\n");
+						habitantes.add(habitante);
+
+						if (habitante.getEdad() >= 18){		
+							System.out.println("DNI: " + habitante.getDni());
+							System.out.println("Nombre: " + habitante.getNombre());
+							System.out.println("Apellido: " + habitante.getApellido());
+							System.out.println("Edad: " + habitante.getEdad() + "\n");
+						}
+
+						habitantes.clear();
+					}
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally{
+					try {
+						if (sc != null)
+							sc.close();
+					} catch (Exception e2) {
+						e2.printStackTrace();
+					}
 				}
 
-				habitantes.clear();
-			}
+				break;
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally{
-			try {
-				if (sc != null)
-					sc.close();
-			} catch (Exception e2) {
-				e2.printStackTrace();
-			}
-		}		
+			}		
 
 /*---------------------------------------------------------------INMUEBLES-------------------------------------------------------------------*/
 
-		Inmueble inmueble1 = new Inmueble();
+			case "2":  {
+			
+				System.out.println("\n\n---------- Información del inmueble ----------\n");
 
-		inmueble1.setDireccion("Kale Nagusia, 31");
-		inmueble1.setNombreDueño("Edurne");
-		inmueble1.setApellidoDueño("Mendizabal");
-		inmueble1.setArea(20);
+				Inmueble inmueble1 = new Inmueble();
 
-		direccionInmueble = inmueble1.getDireccion();
-		nombreDueñoInmueble = inmueble1.getNombreDueño();
-		apellidoDueñoInmueble = inmueble1.getApellidoDueño();
-		areaInmueble = inmueble1.getArea();
+				inmueble1.setDireccion("Kale Nagusia, 31");
+				inmueble1.setNombreDueño("Edurne");
+				inmueble1.setApellidoDueño("Mendizabal");
+				inmueble1.setArea(20);
 
-		System.out.println("\n---------- Información del inmueble ----------");
-		System.out.println("\nDireccion: " + direccionInmueble);
-		System.out.println("Nombre: " + nombreDueñoInmueble);
-		System.out.println("Apellido: " + apellidoDueñoInmueble);
-		System.out.println("Area: " + areaInmueble + " m2");
+				direccionInmueble = inmueble1.getDireccion();
+				nombreDueñoInmueble = inmueble1.getNombreDueño();
+				apellidoDueñoInmueble = inmueble1.getApellidoDueño();
+				areaInmueble = inmueble1.getArea();
+
+				System.out.println("Direccion: " + direccionInmueble);
+				System.out.println("Nombre: " + nombreDueñoInmueble);
+				System.out.println("Apellido: " + apellidoDueñoInmueble);
+				System.out.println("Area: " + areaInmueble + " m2\n");
+
+				break;
+
+			}
 
 /*------------------------------------------------------------ESPACIOS PUBLICOS--------------------------------------------------------------*/
 
-		EspacioPublico espacioPublico1 = new EspacioPublico();
+			case "3":  {
 
-		espacioPublico1.setDireccion("Otelarrea, 35");
-		espacioPublico1.setTipo("Escuela");
+				System.out.println("\n\n------ Información del espacio público -------\n");
 
-		direccionEspacioPublico = espacioPublico1.getDireccion();
-		tipoEspacioPublico = espacioPublico1.getTipo();
+				EspacioPublico espacioPublico1 = new EspacioPublico();
 
-		System.out.println("\n\n---------- Información del espacio público ----------");
-		System.out.println("\nDireccion: " + direccionEspacioPublico);
-		System.out.println("Tipo: " + tipoEspacioPublico);
+				espacioPublico1.setDireccion("Otelarrea, 35");
+				espacioPublico1.setTipo("Escuela");
+
+				direccionEspacioPublico = espacioPublico1.getDireccion();
+				tipoEspacioPublico = espacioPublico1.getTipo();
+
+				System.out.println("Direccion: " + direccionEspacioPublico);
+				System.out.println("Tipo: " + tipoEspacioPublico + "\n");
+
+				break;
+
+			}
 
 /*--------------------------------------------------------------AYUNTAMIENTOS----------------------------------------------------------------*/
 
-		System.out.println("\n\n---------- Información del ayuntamiento ----------");
+			case "4":  {
 
-		Ayuntamiento ayuntamiento1 = new Ayuntamiento();
+				System.out.println("\n\n-------- Información del ayuntamiento --------\n");
 
-		ayuntamiento1.setNombreAlcalde("Beñat");
-		ayuntamiento1.setPueblo("Orexa");
-		ayuntamiento1.setDireccion("Plaza, 5");
+				Ayuntamiento ayuntamiento1 = new Ayuntamiento();
 
-		nombreAlcaldeAyuntamiento = ayuntamiento1.getNombreAlcalde();
-		puebloAyuntamiento = ayuntamiento1.getPueblo();
-		direccionAyuntamiento = ayuntamiento1.getDireccion();
+				ayuntamiento1.setNombreAlcalde("Beñat");
+				ayuntamiento1.setPueblo("Orexa");
+				ayuntamiento1.setDireccion("Plaza, 5");
 
-		System.out.println("\nAlcalde: " + nombreAlcaldeAyuntamiento);
-		System.out.println("Pueblo: " + puebloAyuntamiento);
-		System.out.println("Direccion: " + direccionAyuntamiento);
+				nombreAlcaldeAyuntamiento = ayuntamiento1.getNombreAlcalde();
+				puebloAyuntamiento = ayuntamiento1.getPueblo();
+				direccionAyuntamiento = ayuntamiento1.getDireccion();
+
+				System.out.println("Alcalde: " + nombreAlcaldeAyuntamiento);
+				System.out.println("Pueblo: " + puebloAyuntamiento);
+				System.out.println("Direccion: " + direccionAyuntamiento + "\n");
+
+				break;
+			}
 
 /*----------------------------------------------------------------PARTIDOS-------------------------------------------------------------------*/
 
-		System.out.println("\n\n---------- Lista de los partidos ----------\n");
+			case "5":  {
 
-		File archivo2 = new File("listadosPartidos.txt");
-		BufferedReader br2 = new BufferedReader(new FileReader(archivo2));
-		ArrayList <String> partidos = new ArrayList <String> ();
-		String linea2 = br2.readLine();
-		while(linea2 != null) {
-			partidos.add(linea2);
-			linea2 = br2.readLine();
+				System.out.println("\n\n----------- Lista de los partidos ------------\n");
+
+				ArrayList<Partido> partidos = new ArrayList<Partido>();
+			
+				String archivo = "listadosPartidos.txt";
+
+				File fichero = new File(pathArchivo, archivo);
+				Scanner s = null;
+
+				try {
+					s = new Scanner(fichero);
+					while (s.hasNextLine()){
+						String linea = s.nextLine();
+						String[] palabra = linea.split(", ");
+						Partido partido = new Partido();
+
+						partido.setNombre(palabra[0]);
+						partido.setNumeroMiembros(palabra[1]);
+						partido.setAñoFundacion(Integer.parseInt(palabra[2]));
+						partido.setPresidente(palabra[3]);
+
+						partidos.add(partido);
+		
+						System.out.println("Nombre del partido: " + partido.getNombre());
+						System.out.println("Númer de Afiliados: " + partido.getNumeroMiembros());
+						System.out.println("Año de Fundación: " + partido.getAñoFundacion());
+						System.out.println("Presidente: " + partido.getPresidente() + "\n");
+
+						partidos.clear();
+					}
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally{
+					try {
+						if (sc != null)
+							sc.close();
+					} catch (Exception e2) {
+						e2.printStackTrace();
+					}
+				}
+
+				break;
+			}
+			case "6":  {
+
+				System.out.println("\n\nSaliendo del programa\n");
+				break;
+
+			}
+			default:  {
+
+				System.out.println("\n\nNúmero invalido\n");
+				System.out.println("Saliendo del programa\n");
+				break;
+			}
 		}
-		int i2=0;
-		while(i2<partidos.size()) {
-			String partido = partidos.get(i2);
-			ArrayList <Partido> partidosArray = new ArrayList(Arrays.asList(partido.split(",")));
-			System.out.println("Partido " + i2 + " (" + partidosArray.get(0) + "): ");
-			System.out.println("Numero Miembros = " + partidosArray.get(1));
-			System.out.println("Año Fundacion = " + partidosArray.get(2));
-			System.out.println("Presidente = " + partidosArray.get(3) + "\n");
-			i2++;
-		}
-		partidos.clear();
 	}
 }
