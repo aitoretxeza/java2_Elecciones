@@ -10,7 +10,7 @@ public class Main {
 
 		String dniHabitante, nombreHabitante, apellidoHabitante, direccionInmueble, nombreDueñoInmueble, apellidoDueñoInmueble, tipoEspacioPublico, direccionEspacioPublico, nombreAlcaldeAyuntamiento, puebloAyuntamiento, direccionAyuntamiento, nombrePartido;
 
-		String pathArchivo = "/home/administrador/Zubiri 2014-2015/Java Proyectos/java2_Elecciones/src";
+		String pathArchivo = "/home/zubiri/ProyectosJava/java2_Elecciones/src";
 
 		int edadHabitante;
 
