@@ -1,6 +1,7 @@
 public class EspacioPublico {
 
 		protected String direccion;
+		protected int aforoMaximo;
 
 		public void setDireccion (String direccionIntroducido){
 			direccion = direccionIntroducido;
@@ -8,5 +9,13 @@ public class EspacioPublico {
 		
 		public String getDireccion(){
 			return direccion;
+	 	}
+
+		public void setAforoMaximo (int aforoMaximoIntroducido){
+			aforoMaximo = aforoMaximoIntroducido;
+	 	}
+		
+		public int getAforoMaximo(){
+			return aforoMaximo;
 	 	}
 }

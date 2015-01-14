@@ -150,13 +150,21 @@ public class Main {
 				EspacioPublico espacioPublico1 = new EspacioPublico();
 
 				espacioPublico1.setDireccion("Otelarrea, 35");
-				espacioPublico1.setTipo("Escuela");
+				espacioPublico1.setAforoMAximo("150");
 
 				direccionEspacioPublico = espacioPublico1.getDireccion();
-				tipoEspacioPublico = espacioPublico1.getTipo();
+				aforoMaximoEspacioPublico = espacioPublico1.getAforoMaximo();
 
-				System.out.println("Direccion: " + direccionEspacioPublico);
-				System.out.println("Tipo: " + tipoEspacioPublico + "\n");
+				Hashtable espacioPublicoHastable  = new Hashtable();
+
+				espacioPublicoHastable.put("direccion", direccionEspacioPublico);
+				espacioPublicoHastable.put("aforoMaximo", aforoMaximoEspacioPublico);
+
+       			String direccionHastable  = (String) espacioPublicoHastable.get("direccion");
+       			int aforoMaximoHastable  = (int) espacioPublicoHastable.get("aforoMaximo");
+
+				System.out.println("Direccion: " + direccionHastable);
+				System.out.println("Aforo Máximo: " + aforoMaximoHastable);
 
 				break;
 
