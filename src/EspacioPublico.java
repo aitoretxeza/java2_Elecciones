@@ -1,14 +1,6 @@
 public class EspacioPublico {
 
-		private String tipo, direccion;
-
-		public void setTipo (String tipoIntroducido){
-			tipo = tipoIntroducido;
-	 	}
-		
-		public String getTipo(){
-			return tipo;
-	 	}
+		protected String direccion;
 
 		public void setDireccion (String direccionIntroducido){
 			direccion = direccionIntroducido;
