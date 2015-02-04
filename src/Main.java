@@ -1,19 +1,13 @@
 import java.io.*;
 import java.util.*;
-import java.lang.*;
 
 public class Main {
 	
 	@SuppressWarnings("unchecked")
 
 	public static void main(String[] args) throws IOException {
-
-		String dniHabitante, nombreHabitante, apellidoHabitante, direccionInmueble, nombreDueñoInmueble,
-		apellidoDueñoInmueble, tipoEspacioPublico, direccionEspacioPublico, nombreAlcaldeAyuntamiento,
-		puebloAyuntamiento, direccionAyuntamiento, nombrePartido;
+		
 		String pathArchivo = "/home/zubiri/ProyectosJava/java2_Elecciones/src";
-		int edadHabitante;
-		double areaInmueble;
 
 		Scanner sc = new Scanner(System.in);
 		System.out.print("\n-------------------- MENU --------------------\n");
@@ -103,7 +97,7 @@ public class Main {
 				EspacioPublico espacioPublico = new EspacioPublico();
 
 				espacioPublico.setDireccion("Otelarrea, 35");
-				espacioPublico.setAforoMAximo("150");
+				espacioPublico.setAforoMaximo(150);
 
 				Hashtable espacioPublicoHastable  = new Hashtable();
 
