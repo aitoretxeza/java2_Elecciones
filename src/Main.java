@@ -8,7 +8,9 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 
-		String dniHabitante, nombreHabitante, apellidoHabitante, direccionInmueble, nombreDueñoInmueble, apellidoDueñoInmueble, tipoEspacioPublico, direccionEspacioPublico, nombreAlcaldeAyuntamiento, puebloAyuntamiento, direccionAyuntamiento, nombrePartido;
+		String dniHabitante, nombreHabitante, apellidoHabitante, direccionInmueble, nombreDueñoInmueble,
+		apellidoDueñoInmueble, tipoEspacioPublico, direccionEspacioPublico, nombreAlcaldeAyuntamiento,
+		puebloAyuntamiento, direccionAyuntamiento, nombrePartido;
 		String pathArchivo = "/home/zubiri/ProyectosJava/java2_Elecciones/src";
 		int edadHabitante;
 		double areaInmueble;
@@ -28,7 +30,7 @@ public class Main {
 		System.out.print("\n----------------------------------------------");
 		
 		switch (respuesta) {
-/*--------------------------------------------------------------- HABITANTES ------------------------------------------------------------------*/
+/*------------------------------------------------------ HABITANTES ---------------------------------------------------------*/
 			case "1": {
 
 				System.out.println("\n\n-- Lista de los habitantes mayores de edad ---\n");
@@ -79,22 +81,17 @@ public class Main {
 			
 				System.out.println("\n\n---------- Información del inmueble ----------\n");
 
-				Inmueble inmueble1 = new Inmueble();
+				Inmueble inmueble = new Inmueble();
 
-				inmueble1.setDireccion("Kale Nagusia, 31");
-				inmueble1.setNombreDueño("Edurne");
-				inmueble1.setApellidoDueño("Mendizabal");
-				inmueble1.setArea(20);
+				inmueble.setDireccion("Kale Nagusia, 31");
+				inmueble.setNombreDueño("Edurne");
+				inmueble.setApellidoDueño("Mendizabal");
+				inmueble.setArea(20);
 
-				direccionInmueble = inmueble1.getDireccion();
-				nombreDueñoInmueble = inmueble1.getNombreDueño();
-				apellidoDueñoInmueble = inmueble1.getApellidoDueño();
-				areaInmueble = inmueble1.getArea();
-
-				System.out.println("Direccion: " + direccionInmueble);
-				System.out.println("Nombre: " + nombreDueñoInmueble);
-				System.out.println("Apellido: " + apellidoDueñoInmueble);
-				System.out.println("Area: " + areaInmueble + " m2\n");
+				System.out.println("Direccion: " + inmueble.getDireccion());
+				System.out.println("Nombre: " + inmueble.getNombreDueño());
+				System.out.println("Apellido: " + inmueble.getApellidoDueño());
+				System.out.println("Area: " + inmueble.getArea() + " m2\n");
 
 				break;
 			}
@@ -105,19 +102,16 @@ public class Main {
 
 				EspacioPublico espacioPublico = new EspacioPublico();
 
-				espacioPublico1.setDireccion("Otelarrea, 35");
-				espacioPublico1.setAforoMAximo("150");
-
-				direccionEspacioPublico = espacioPublico.getDireccion();
-				aforoMaximoEspacioPublico = espacioPublico.getAforoMaximo();
+				espacioPublico.setDireccion("Otelarrea, 35");
+				espacioPublico.setAforoMAximo("150");
 
 				Hashtable espacioPublicoHastable  = new Hashtable();
 
-				espacioPublicoHastable.put("direccion", direccionEspacioPublico);
-				espacioPublicoHastable.put("aforoMaximo", aforoMaximoEspacioPublico);
+				espacioPublicoHastable.put("direccion", espacioPublico.getDireccion());
+				espacioPublicoHastable.put("aforoMaximo", espacioPublico.getAforoMaximo());
 
-       			String direccionHastable  = (String) espacioPublicoHastable.get("direccion");
-       			int aforoMaximoHastable  = (int) espacioPublicoHastable.get("aforoMaximo");
+       				String direccionHastable  = (String) espacioPublicoHastable.get("direccion");
+       				int aforoMaximoHastable  = (int) espacioPublicoHastable.get("aforoMaximo");
 
 				System.out.println("Direccion: " + direccionHastable);
 				System.out.println("Aforo Máximo: " + aforoMaximoHastable);
@@ -135,13 +129,9 @@ public class Main {
 				ayuntamiento.setPueblo("Orexa");
 				ayuntamiento.setDireccion("Plaza, 5");
 
-				nombreAlcaldeAyuntamiento = ayuntamiento.getNombreAlcalde();
-				puebloAyuntamiento = ayuntamiento.getPueblo();
-				direccionAyuntamiento = ayuntamiento.getDireccion();
-
-				System.out.println("Alcalde: " + nombreAlcaldeAyuntamiento);
-				System.out.println("Pueblo: " + puebloAyuntamiento);
-				System.out.println("Direccion: " + direccionAyuntamiento + "\n");
+				System.out.println("Alcalde: " + ayuntamiento.getNombreAlcalde());
+				System.out.println("Pueblo: " + ayuntamiento.getPueblo());
+				System.out.println("Direccion: " + ayuntamiento.getDireccion() + "\n");
 
 				break;
 			}
